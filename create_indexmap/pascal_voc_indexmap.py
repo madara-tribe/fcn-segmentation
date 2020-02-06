@@ -75,7 +75,7 @@ def mask_to_indexmap(img, base_indexmap, class_color, class_id):
 for idx, (anno_path, img_path) in enumerate(zip(sorted_anno_path[:20], sorted_img_path)):
     # annos
     img = cv2.imread(anno_path)
-　　 im_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+　　 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
     print(img.shape, np.unique(img))
     h, w, _ = np.shape(img)
