@@ -37,7 +37,7 @@
 
 <b>annotation png image pixel</b>
 
-when voc image taht has 21 classes, its pixel range 1 to 21
+In the case of pascal_voc image taht has 21 classes, its pixel range 1 to 21
 ```python
 import numpy as np
 anno = cv2.imreead(annos_path)
@@ -48,4 +48,4 @@ np.unique(anno)
 
 ```
 
-to create indexmap, look ```create_indexmap/voc_indexmap.py```
+to create indexmap, look ```create_indexmap/pascal_voc_indexmap.py```
