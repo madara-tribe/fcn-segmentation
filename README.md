@@ -33,7 +33,7 @@
 
 ![original_result1](https://user-images.githubusercontent.com/48679574/73958109-bfa6ab00-494a-11ea-9fc6-9ebada69ce3e.png)
 
-# how to make indexmap
+# indexmap pixel value range
 
 <b>annotation png image pixel</b>
 when voc image taht has 21 classes, its pixel range 1 to 21
