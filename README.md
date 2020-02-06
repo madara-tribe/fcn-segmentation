@@ -46,3 +46,5 @@ np.unique(anno)
 [1,2,3,4,5,6,7,8,.....,21]
 
 ```
+
+to create indexmap see ```create_indexmap/voc_indexmap.py```
