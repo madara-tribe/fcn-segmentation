@@ -89,11 +89,11 @@ for idx, (anno_path, img_path) in enumerate(zip(sorted_anno_path[:20], sorted_im
     plt.imshow(indexmap),plt.show()
 
 
-    save_dir="drive/My Drive/voc_anno"
-    cv2.imwrite(os.path.join(save_dir, str(idx) + "indexmap.png"), indexmap)
+    anno_save_dir="drive/My Drive/voc_anno"
+    cv2.imwrite(os.path.join(anno_save_dir, str(idx) + "_indexmap.png"), indexmap)
 
     # imgs
     jpg = cv2.imread(img_path)
     jpg = cv2.resize(jpg, (608, 416), interpolation=cv2.INTER_NEAREST)
-    save_dir2="drive/My Drive/vos_jpeg"
-    cv2.imwrite(os.path.join(save_dir2, str(idx) + "indexmap.png"), jpg)
+    jpg_save_dir = "drive/My Drive/voc_jpeg"
+    cv2.imwrite(os.path.join(jpg_save_dir, str(idx) + "_indexmap.jpg"), jpg)
