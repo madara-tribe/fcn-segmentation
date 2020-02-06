@@ -1,10 +1,18 @@
-import PIL.Image as Image
-import PIL.ImageDraw as ImageDraw
-from enum import IntEnum, Enum
+from google.colab import drive
+drive.mount('/content/drive')
+
+
+import os
+import random
+import numpy as np
+import cv2
+from natsort import natsorted
+import matplotlib.pyplot as plt
+from pascal_voc_classID import Class_ID
+
 
 ID1_aeroplane = (128, 0, 0)
 ID2_bicycle = (0, 128, 0)
-
 ID3_bird = (0,128,128)
 ID4_boat = (128,0,0)
 ID5_bottle = (128,0,128)
@@ -24,29 +32,6 @@ ID18_sofa = (0,192,0)
 ID19_train = (0,192,128)
 ID20_tvmonitor = (0,64,128)
 ID21_void = (12,64,128)
-
-class Class_ID(IntEnum):
-    ID1_aeroplane = 1
-    ID2_bicycle = 2
-    ID3_bird = 3
-    ID4_boat = 4
-    ID5_bottle = 5
-    ID6_bus = 6
-    ID7_car= 7
-    ID8_cat= 8
-    ID9_chair = 9
-    ID10_cow= 10
-    ID11_diningtable= 11
-    ID12_dog = 12
-    ID13_horse= 13
-    ID14_motorbike= 14
-    ID15_person = 15
-    ID16_pottedplant = 16
-    ID17_sheep= 17
-    ID18_sofa = 18
-    ID19_train = 19
-    ID20_tvmonitor = 20
-    ID21_void = 21
 
     
 def make_indexmap(img, base_indexmap):
