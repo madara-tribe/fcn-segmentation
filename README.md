@@ -36,6 +36,7 @@
 # indexmap pixel value range
 
 <b>annotation png image pixel</b>
+
 when voc image taht has 21 classes, its pixel range 1 to 21
 ```python
 import numpy as np
