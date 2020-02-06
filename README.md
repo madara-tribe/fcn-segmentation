@@ -35,6 +35,7 @@
 
 # how to make indexmap
 
+<b>annotation png image pixel</b>
 ```
+# when voc image
 
-```
