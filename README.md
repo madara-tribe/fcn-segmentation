@@ -47,4 +47,4 @@ np.unique(anno)
 
 ```
 
-to create indexmap see ```create_indexmap/voc_indexmap.py```
+to create indexmap, look ```create_indexmap/voc_indexmap.py```
