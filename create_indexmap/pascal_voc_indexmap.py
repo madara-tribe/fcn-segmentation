@@ -70,7 +70,17 @@ def mask_to_indexmap(img, base_indexmap, class_color, class_id):
     base_indexmap[masks == class_id] = class_id
     return base_indexmap
 
+image_dir = 'drive/My Drive/JPEG_seg'
+anno_dir = 'drive/My Drive/SegmentationClass'
+if not os.path.exists(image_dir) or not os.path.exists(anno_dir):
+    print("ERROR!The folder is not exist")
+    
+load_img_path = [os.path.join(image_dir, path) for path in os.listdir(image_dir)]
+sorted_img_path =[path for path in natsorted(load_img_path)]
 
+load_anno_path = [os.path.join(anno_dir, path) for path in os.listdir(anno_dir)]
+sorted_anno_path =[path for path in natsorted(load_anno_path)]
+print(len(sorted_img_path), len(sorted_anno_path))   
 
 for idx, (anno_path, img_path) in enumerate(zip(sorted_anno_path[:20], sorted_img_path)):
     # annos
