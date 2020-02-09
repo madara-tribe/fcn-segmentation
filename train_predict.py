@@ -13,7 +13,7 @@ from keras.models import load_model
 import numpy as np
 import os
 import matplotlib.pyplot as plt
-from fcn import fcn_8
+from models.fcn import fcn_8
 
 def find_latest_checkpoint(checkpoints_path, fail_safe=True):
 
