@@ -20,13 +20,11 @@
 
 <b>original image</b><hr>
 
-<b>image</b>
+<b>image</b> and <b>result</b>
 
-![original_img1](https://user-images.githubusercontent.com/48679574/73958093-ba496080-494a-11ea-9d81-4dcaa2a2c2dc.png)
+<img src="https://user-images.githubusercontent.com/48679574/73958093-ba496080-494a-11ea-9d81-4dcaa2a2c2dc.png" width="400px"><img src="https://user-images.githubusercontent.com/48679574/73958109-bfa6ab00-494a-11ea-9fc6-9ebada69ce3e.png" width="400px">
 
-<b>result</b>
 
-![original_result1](https://user-images.githubusercontent.com/48679574/73958109-bfa6ab00-494a-11ea-9fc6-9ebada69ce3e.png)
 
 # indexmap pixel value range
 
@@ -44,3 +42,23 @@ np.unique(anno)
 ```
 
 To create indexmap, look ```create_indexmap/pascal_voc_indexmap.py```
+
+# train and predict code
+
+```
+num_cls = 51
+input_height = 416
+input_width = 608
+
+
+model = fcn_32(n_classes = num_cls, input_height=input_height, input_width=input_width)
+directory = 'tmp'
+os.makedirs(directory, exist_ok=True)
+model.train(
+        train_images =  "dataset/images_train",
+        train_annotations = "dataset/annotations_train",
+        val_images="dataset/images_test",
+        val_annotations="dataset/annotations_test",
+        checkpoints_path = directory, epochs=30
+    )
+```
