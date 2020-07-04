@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
-
-
 import json
 from data_utils.data_loader import image_segmentation_generator, verify_segmentation_dataset
 import glob
@@ -31,6 +25,26 @@ def predict():
     plt.show()
 
 
+def load_weight():
+    num_cls = 51
+    input_height = 416
+    input_width = 608
+
+    # load model
+    model = fcn_32(n_classes = num_cls, input_height=input_height, input_width=input_width)
+    model.summary()
+    model.load_weights('/home/ubuntu/coco/tmp/22.h5')
+
+
+    out = model.predict_segmentation(
+        inp="/home/ubuntu/coco/dataset1/images_prepped_test/0016E5_07959.png",
+        out_fname="/tmp/out.png"
+    )
+    print(model.evaluate_segmentation(inp_images_dir="/home/ubuntu/coco/dataset1/images_prepped_test/"  , annotations_dir="/home/ubuntu/coco/dataset1/annotations_prepped_test/" ) )
+
+    import matplotlib.pyplot as plt
+    plt.imshow(out)
+    
 if __name__ == '__main__':
     num_cls = 51
     input_height = 416
