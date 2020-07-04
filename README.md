@@ -46,7 +46,7 @@ To create indexmap, look ```create_indexmap/pascal_voc_indexmap.py```
 # train and predict code
 
 
-```
+```python
 num_cls = 51
 input_height = 416
 input_width = 608
