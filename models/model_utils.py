@@ -1,13 +1,18 @@
 from types import MethodType
+
 from keras.models import *
 from keras.layers import *
 import keras.backend as K
 from tqdm import tqdm
+import sys
+sys.path.append('../')
+from train import train
+from predict import predict, predict_multiple, evaluate
 
-from data_utilsconfig import IMAGE_ORDERING
-from .train import train
-from help_methods.predict import predict, predict_multiple, evaluate
-
+IMAGE_ORDERING_CHANNELS_LAST = "channels_last"
+IMAGE_ORDERING_CHANNELS_FIRST = "channels_first"
+# Default IMAGE_ORDERING = channels_last
+IMAGE_ORDERING = IMAGE_ORDERING_CHANNELS_LAST
 
 # source m1 , dest m2
 def transfer_weights(m1, m2, verbose=True):
