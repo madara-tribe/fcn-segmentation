@@ -45,6 +45,7 @@ To create indexmap, look ```create_indexmap/pascal_voc_indexmap.py```
 
 # train and predict code
 
+
 ```
 num_cls = 51
 input_height = 416
@@ -61,4 +62,22 @@ model.train(
         val_annotations="dataset/annotations_test",
         checkpoints_path = directory, epochs=30
     )
+    
+    
+out = model.predict_segmentation(
+    inp="dataset/N.png",
+    out_fname="/tmp/out.png"
+)
+
+import matplotlib.pyplot as plt
+plt.imshow(out)
+
+# evaluating the model 
+print(model.evaluate_segmentation(inp_images_dir="dataset/images_test/"  , annotations_dir="dataset/annotations_test/" ) )
 ```
+
+# references
+
+- [keras-segmentation](https://github.com/divamgupta/image-segmentation-keras)
+- [prepare dataset](https://drive.google.com/file/d/0B0d9ZiqAgFkiOHR1NTJhWVJMNEU/view)
+
