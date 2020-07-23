@@ -1,8 +1,10 @@
 #!/bin/sh
 # COCO API
+pip3 install Cython
 git clone https://github.com/cocodataset/cocoapi.git
 cd cocoapi/PythonAPI
 make
+CUDA_VISIBLE_DEVICES=1 python 〜.py
 
 # download 2017 train image
 wget http://images.cocodataset.org/zips/train2017.zip
