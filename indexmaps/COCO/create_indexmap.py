@@ -5,10 +5,11 @@ import random
 import os
 import cv2
 import matplotlib.pyplot as plt
+import tqdm
+import sys
 
-
-dataDir='/home/ubuntu/COCOdataset2017'
-dataType='train'
+dataDir='COCOdataset2017'
+dataType='val'
 annFile='{}/annotations/instances_{}2017.json'.format(dataDir, dataType)
 
 # Initialize the COCO api for instance annotations
@@ -35,9 +36,6 @@ def getClassName(classID, cats):
 print('The class name is', getClassName(77, cats))
 
 
-# In[14]:
-
-
 #classes = create_classes_list()
 #print(classes)
 def create_indexmap(img, anns, cats):
@@ -49,22 +47,19 @@ def create_indexmap(img, anns, cats):
         mask = np.maximum(coco.annToMask(anns[k])*pixel_value, mask)
     return mask
 
-
-# In[15]:
-
-
+    
 H=608
 W=416
-jpg_save_dir='/home/ubuntu/cocoseg/image'
-anno_save_dir= '/home/ubuntu/cocoseg/ano'
+jpg_save_dir='cocoseg/image'
+anno_save_dir= 'cocoseg/ano'
 # 11 classes
 filterClasses= ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'traffic light', 'stop sign', 'parking meter']
 classes = filterClasses
 error_files = []
 for i in range(0, len(classes)):
     class_name = classes[i].split('\n')[0]
-    catIds = coco.getCatIds(catNms=[class_name]);
-    imgIds = coco.getImgIds(catIds=catIds);
+    catIds = coco.getCatIds(catNms=[class_name])
+    imgIds = coco.getImgIds(catIds=catIds)
     print("Number of data of" + ' ' + class_name + ': ' + str(len(imgIds)))
 
     for j in range(0, len(imgIds)):
@@ -88,6 +83,6 @@ for i in range(0, len(classes)):
         cv2.imwrite(os.path.join(jpg_save_dir, "class_{}_count_{}.jpg".format(i, j)), I)
         #mask = cv2.resize(mask, (H, W), interpolation=cv2.INTER_NEAREST)
         #print(mask.shape, I.shape)
-        plt.imshow(mask),plt.show()
-        plt.imshow(I),plt.show()
-        print(np.unique(mask))
+        #plt.imshow(mask),plt.show()
+        #plt.imshow(I),plt.show()
+        print(i,j, np.unique(mask))
