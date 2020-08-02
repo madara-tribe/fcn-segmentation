@@ -53,7 +53,7 @@ W=416
 jpg_save_dir='cocoseg/image'
 anno_save_dir= 'cocoseg/ano'
 # 11 classes
-filterClasses= ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'traffic light', 'stop sign', 'parking meter']
+filterClasses= ['person', 'bicycle', 'car', 'motorcycle', 'bus', 'train', 'truck', 'traffic light', 'stop sign']
 classes = filterClasses
 error_files = []
 for i in range(0, len(classes)):
